@@ -5,7 +5,7 @@ class DsrVerifierCli < Formula
   desc "Offline DSR/1.0.1 receipt and evidence bundle verifier"
   homepage "https://github.com/BeWallow/dsr-verifier-cli"
   license "MIT"
-  version "1.0.2"
+  version "1.1.0"
 
   on_macos do
     if Hardware::CPU.arm?
