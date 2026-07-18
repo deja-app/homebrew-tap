@@ -23,17 +23,34 @@ jobs:
           SHA256_LINUX_ARM64: ${{ github.event.client_payload.sha256_linux_arm64 }}
         run: |
           SEMVER="${VERSION#v}"
+          sed -i "s|version \"[0-9.]*\"|version \"${SEMVER}\"|g" Formula/dsr-verifier-cli.rb
 
-          sed -i \
-            -e "s|version \"[0-9.]*\"|version \"${SEMVER}\"|" \
-            -e "s|REPLACE_WITH_SHA256_DARWIN_AMD64|${SHA256_DARWIN_AMD64}|" \
-            -e "s|REPLACE_WITH_SHA256_DARWIN_ARM64|${SHA256_DARWIN_ARM64}|" \
-            -e "s|REPLACE_WITH_SHA256_LINUX_AMD64|${SHA256_LINUX_AMD64}|" \
-            -e "s|REPLACE_WITH_SHA256_LINUX_ARM64|${SHA256_LINUX_ARM64}|" \
-            Formula/dsr-verifier-cli.rb
+          # Update url + sha256 pairs atomically by matching the platform slug
+          # in each URL line. Works for both placeholder and existing-hex forms.
+          python3 << 'PYEOF'
+          import re, os
 
-          echo "Formula updated:"
-          grep -E "version|sha256" Formula/dsr-verifier-cli.rb
+          formula = open('Formula/dsr-verifier-cli.rb').read()
+          semver  = os.environ['VERSION'].lstrip('v')
+          mapping = {
+              'darwin-arm64': os.environ['SHA256_DARWIN_ARM64'],
+              'darwin-amd64': os.environ['SHA256_DARWIN_AMD64'],
+              'linux-arm64':  os.environ['SHA256_LINUX_ARM64'],
+              'linux-amd64':  os.environ['SHA256_LINUX_AMD64'],
+          }
+
+          for arch, sha in mapping.items():
+              formula = re.sub(
+                  rf'url "https://github\.com/deja-app/dsr-verifier-cli/releases/download/[^/]+/dsr-verifier-cli-[^-]+-{re.escape(arch)}\.tar\.gz"(\s+)sha256 "[^"]*"',
+                  f'url "https://github.com/deja-app/dsr-verifier-cli/releases/download/v{semver}/dsr-verifier-cli-v{semver}-{arch}.tar.gz"\\1sha256 "{sha}"',
+                  formula,
+              )
+
+          open('Formula/dsr-verifier-cli.rb', 'w').write(formula)
+          PYEOF
+
+          echo "Formula after update:"
+          grep -E "version|url|sha256" Formula/dsr-verifier-cli.rb
 
       - name: Commit and push
         run: |

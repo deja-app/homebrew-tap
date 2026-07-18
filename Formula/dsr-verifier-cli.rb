@@ -9,8 +9,8 @@ class DsrVerifierCli < Formula
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/deja-app/dsr-verifier-cli/releases/download/v1.1.1/dsr-verifier-cli-v1.1.1-darwin-arm64.tar.gz"
-      sha256 "660e4fe2fe02c1355bad154c2560c22b193bd630cc7fe2e85d7e1735c0f64526"
+      url "https://github.com/deja-app/dsr-verifier-cli/releases/download/v#{version}/dsr-verifier-cli-v#{version}-darwin-arm64.tar.gz"
+      sha256 "0d3a116a8267bfd99868e6217f3b51e9513a2c515126e29b9134db4b5653b98d"
 
       def install
         bin.install "dsr-verifier-cli"
@@ -18,8 +18,8 @@ class DsrVerifierCli < Formula
     end
 
     if Hardware::CPU.intel?
-      url "https://github.com/deja-app/dsr-verifier-cli/releases/download/v1.1.1/dsr-verifier-cli-v1.1.1-darwin-amd64.tar.gz"
-      sha256 "fa170d53c84e8cc940049779848d85f9281c88edfe32dd00a478356ac4b753a6"
+      url "https://github.com/deja-app/dsr-verifier-cli/releases/download/v#{version}/dsr-verifier-cli-v#{version}-darwin-amd64.tar.gz"
+      sha256 "7413a43fb98dfa839785acc37164f51971723fd037eac356831eba07fb94d7de"
 
       def install
         bin.install "dsr-verifier-cli"
@@ -29,8 +29,8 @@ class DsrVerifierCli < Formula
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/deja-app/dsr-verifier-cli/releases/download/v1.1.1/dsr-verifier-cli-v1.1.1-linux-arm64.tar.gz"
-      sha256 "f40bd63a73b68c28b4354fe7c82f9500066b6f9c673521b155222c791a4e6fd8"
+      url "https://github.com/deja-app/dsr-verifier-cli/releases/download/v#{version}/dsr-verifier-cli-v#{version}-linux-arm64.tar.gz"
+      sha256 "f258f5cc9392bc01399e98d1b94e622ba7137bccbd6f2705802471107e9f3e8e"
 
       def install
         bin.install "dsr-verifier-cli"
@@ -38,8 +38,8 @@ class DsrVerifierCli < Formula
     end
 
     if Hardware::CPU.intel?
-      url "https://github.com/deja-app/dsr-verifier-cli/releases/download/v1.1.1/dsr-verifier-cli-v1.1.1-linux-amd64.tar.gz"
-      sha256 "078343691d76aa91207912148a814574c999d1934b54c7a0655611ac9945b333"
+      url "https://github.com/deja-app/dsr-verifier-cli/releases/download/v#{version}/dsr-verifier-cli-v#{version}-linux-amd64.tar.gz"
+      sha256 "be482cf432646f94dc1753c02ac3c5d76a8c5b3a023cf9e4bb484e1351cfb878"
 
       def install
         bin.install "dsr-verifier-cli"
@@ -48,7 +48,7 @@ class DsrVerifierCli < Formula
   end
 
   test do
-    assert_match "dsr-verifier-cli v1.1.1", shell_output("#{bin}/dsr-verifier-cli --version")
+    assert_match "dsr-verifier-cli v#{version}", shell_output("#{bin}/dsr-verifier-cli --version")
     assert_match "offline", shell_output("#{bin}/dsr-verifier-cli --help")
   end
 end
