@@ -10,7 +10,7 @@ class DsrVerifierCli < Formula
   on_macos do
     if Hardware::CPU.arm?
       url "https://github.com/deja-app/dsr-verifier-cli/releases/download/v1.4.3/dsr-verifier-cli-v1.4.3-darwin-arm64.tar.gz"
-      sha256 "95236e7ceb65631d1ebf2795cdbbcae31f3aa8a4f4a4516e976ab9c88cda0f4b"
+      sha256 "d337787e439a29600ffffe824c6cf13afc852f655a49c59be8f3a1a73cd730e3"
 
       def install
         bin.install "dsr-verifier-cli"
@@ -19,7 +19,7 @@ class DsrVerifierCli < Formula
 
     if Hardware::CPU.intel?
       url "https://github.com/deja-app/dsr-verifier-cli/releases/download/v1.4.3/dsr-verifier-cli-v1.4.3-darwin-amd64.tar.gz"
-      sha256 "667baea1062ab333d69e392da06335d76c169f26262ec50bcd4e00f09ccebf89"
+      sha256 "850dd6b663add043e44fd16652d51fe109fd63da38eb16e07097abcdd33b879d"
 
       def install
         bin.install "dsr-verifier-cli"
@@ -30,7 +30,7 @@ class DsrVerifierCli < Formula
   on_linux do
     if Hardware::CPU.arm?
       url "https://github.com/deja-app/dsr-verifier-cli/releases/download/v1.4.3/dsr-verifier-cli-v1.4.3-linux-arm64.tar.gz"
-      sha256 "199c1d165268d2567022bbc4d485a46ce480e547af874ba78b34256a22701c67"
+      sha256 "cc1d0d7724080fe622913d017bae81fad77557bf3b715cb29d812b816a2fcbab"
 
       def install
         bin.install "dsr-verifier-cli"
@@ -39,7 +39,7 @@ class DsrVerifierCli < Formula
 
     if Hardware::CPU.intel?
       url "https://github.com/deja-app/dsr-verifier-cli/releases/download/v1.4.3/dsr-verifier-cli-v1.4.3-linux-amd64.tar.gz"
-      sha256 "751360e8db2467e338b531f3461486bc3255650f88d2f45884ff694830ec7ca9"
+      sha256 "52865a313667464cc73d92c7abeb014142ad7a66784cf8415e5c11163fdd353b"
 
       def install
         bin.install "dsr-verifier-cli"
