@@ -5,12 +5,12 @@ class DsrVerifierCli < Formula
   desc "Offline DSR/1.0.1 receipt and evidence bundle verifier"
   homepage "https://github.com/deja-app/dsr-verifier-cli"
   license "Apache-2.0"
-  version "1.6.1"
+  version "1.6.2"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/deja-app/dsr-verifier-cli/releases/download/v1.6.1/dsr-verifier-cli-v1.6.1-darwin-arm64.tar.gz"
-      sha256 "cd083699634ae53233a36e8bec63373cf76abb2983f82b6c2f6d2c533de00393"
+      url "https://github.com/deja-app/dsr-verifier-cli/releases/download/v1.6.2/dsr-verifier-cli-v1.6.2-darwin-arm64.tar.gz"
+      sha256 "6fb3d3281a47bd8225a6d16fcb8a4b1832469647868db7c079c244cf43ee8ee7"
 
       def install
         bin.install "dsr-verifier-cli"
@@ -18,8 +18,8 @@ class DsrVerifierCli < Formula
     end
 
     if Hardware::CPU.intel?
-      url "https://github.com/deja-app/dsr-verifier-cli/releases/download/v1.6.1/dsr-verifier-cli-v1.6.1-darwin-amd64.tar.gz"
-      sha256 "91c46f7061c73bf1ada28585791e9b12e5fc6e0cd01a4537f2aed35124432f4d"
+      url "https://github.com/deja-app/dsr-verifier-cli/releases/download/v1.6.2/dsr-verifier-cli-v1.6.2-darwin-amd64.tar.gz"
+      sha256 "c397bed9cef79067a16d095c7d0c68a6028546ea1819fbd8b14f48967d887fce"
 
       def install
         bin.install "dsr-verifier-cli"
@@ -29,8 +29,8 @@ class DsrVerifierCli < Formula
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/deja-app/dsr-verifier-cli/releases/download/v1.6.1/dsr-verifier-cli-v1.6.1-linux-arm64.tar.gz"
-      sha256 "aeff8e745b9179a9d4703a0e52df143608c21bc5d2260bf6f308725caa6ec6b5"
+      url "https://github.com/deja-app/dsr-verifier-cli/releases/download/v1.6.2/dsr-verifier-cli-v1.6.2-linux-arm64.tar.gz"
+      sha256 "93eb7babaf6053ffd8263a83979e8bac9e8219022fc86a9013be7039f5924ae9"
 
       def install
         bin.install "dsr-verifier-cli"
@@ -38,8 +38,8 @@ class DsrVerifierCli < Formula
     end
 
     if Hardware::CPU.intel?
-      url "https://github.com/deja-app/dsr-verifier-cli/releases/download/v1.6.1/dsr-verifier-cli-v1.6.1-linux-amd64.tar.gz"
-      sha256 "80621905662f7c072b24328e32426b0ed6fa56f85a2bff48f13f8628e0f3906e"
+      url "https://github.com/deja-app/dsr-verifier-cli/releases/download/v1.6.2/dsr-verifier-cli-v1.6.2-linux-amd64.tar.gz"
+      sha256 "61c0d6ac7122b3a2a19b6999e5343f61724df32744ec1f95d2c3aa8093cc9bb8"
 
       def install
         bin.install "dsr-verifier-cli"
